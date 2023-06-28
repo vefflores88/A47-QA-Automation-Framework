@@ -1,15 +1,20 @@
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
+import org.openqa.selenium.WebDriver;
+
+import java.time.Duration;
+import java.util.UUID;
 
 public class BaseTest {
 
     public static WebDriver driver = null;
-
-    public static String url = "https://bbb.testpro.io/";
+    public static String url = "https://qa.koel.app/";
 
     @BeforeSuite
     static void setupClass() {
@@ -17,38 +22,69 @@ public class BaseTest {
     }
 
     @BeforeMethod
-    public void launchBrowser(){
-    // Added ChromeOptions argument to fix websocket error
-    ChromeOptions options = new ChromeOptions();
-    options.addArguments("--remote-allow-origins==");
+    public void launchBrowser() {
+        //      Added ChromeOptions argument below to fix websocket error
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--remote-allow-origins=*");
 
-    driver = new ChromeDriver(options);
-    driver.manage().timeout().implicitlyWait(Duration.ofSeconds(10));
+        driver = new ChromeDriver(options);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     }
 
     @AfterMethod
     public void closeBrowser() {
-        drvier.quit();
+        driver.quit();
     }
 
-    public static void navigateToPage() {
+    protected static void clickSubmit() {
+        WebElement submitLogin = driver.findElement(By.cssSelector("button[type='submit']"));
+        submitLogin.click();
+    }
+
+    protected static void enterPassword(String password) {
+        WebElement passwordInput = driver.findElement(By.cssSelector("[type='password']"));
+        passwordInput.click();
+        passwordInput.clear();
+        passwordInput.sendKeys(password);
+    }
+
+    protected static void enterEmail(String email) {
+        WebElement emailInput = driver.findElement(By.cssSelector("[type='email']"));
+        emailInput.click();
+        emailInput.clear();
+        emailInput.sendKeys(email);
+    }
+
+    protected static void openLoginUrl() {
+        String url = "https://qa.koel.app/";
         driver.get(url);
     }
 
-    public static void provideEmail(String email) {
-        WebElement emailField = driver.findElement(By.cssSelector("input[type = 'email']"));
-        emailField.clear();
-        emailField.sendKeys(email);
+    // Profile Tests Helper Functions
+    protected static void clickAvatarIcon() {
+        WebElement avatarIcon = driver.findElement(By.cssSelector("img.avatar"));
+        avatarIcon.click();
     }
 
-    public static void providePassword(String password) {
-        WebElement passwordField = driver.findElement(By.cssSelector("input[type = 'passwork']"));
-        passwordField.clear();
-        passwordField.sendKeys(password);
+    protected static String generateRandomName() {
+        return UUID.randomUUID().toString().replace("-", "");
     }
 
-    public static void clickSubmit() {
-        WebElement submit = driver.findElement(By.cssSelector("button[type= 'submit'"));
-        submit.click();
+    protected static void providePassword(String password) {
+        WebElement currentPassword = driver.findElement(By.cssSelector("[name='current_password']"));
+        currentPassword.clear();
+        currentPassword.sendKeys(password);
     }
+
+    protected static void provideProfileName(String name) {
+        WebElement profileName = driver.findElement(By.cssSelector("[name='name']"));
+        profileName.clear();
+        profileName.sendKeys(name);
+    }
+
+    protected static void  ClickSaveButton () {
+        WebElement saveButton = driver.findElement(By.cssSelector(("button.btn-submit")));
+        saveButton.click();
+    }
+
 }
