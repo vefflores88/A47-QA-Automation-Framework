@@ -1,14 +1,6 @@
-package HW17;
-
-
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.testng.Assert;
 import org.testng.annotations.Test;
-import HW17.BaseTest;
 
-public class Homework17 extends BaseTest {
-
+public class Hwrk17 extends BsTest{
     @Test
     public void addSongToPlaylist() throws InterruptedException {
 
@@ -27,11 +19,10 @@ public class Homework17 extends BaseTest {
         //Search for a song in search field
         searchSong("Beautiful");
 
-       // Thread.sleep(5000);
+        // Thread.sleep(5000);
 
     }
 
 
 }
-
 
