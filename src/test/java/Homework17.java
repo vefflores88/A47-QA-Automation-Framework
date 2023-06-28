@@ -4,18 +4,13 @@ import org.openqa.selenium.chrome.ChromeOptions;
 
 import java.time.Duration;
 
-public class Homework17 {
+public class Homework17 extends BaseTest{
 
     public void addSongToPlaylist(){
-
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--remote-allow-origins=*");
-
-        WebDriver driver = new ChromeDriver(options);
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-
-        String url = "https://qa.koel.app/";
-        driver.get(url);
+        navigateToPage();
+        provideEmail("victor.flores@testpro.io");
+        providePasswork("te$t$tudent");
+        clickSubmit();
 
 
     }
