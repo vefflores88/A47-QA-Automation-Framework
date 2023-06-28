@@ -9,7 +9,7 @@ public class Homework17 extends BaseTest{
     public void addSongToPlaylist(){
         navigateToPage();
         provideEmail("victor.flores@testpro.io");
-        providePasswork("te$t$tudent");
+        providePassword("te$t$tudent");
         clickSubmit();
 
 
