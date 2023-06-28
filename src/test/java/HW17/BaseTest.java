@@ -1,3 +1,5 @@
+package HW17;
+
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -7,10 +9,8 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 import org.openqa.selenium.WebDriver;
-
 import java.time.Duration;
 import java.util.UUID;
-
 public class BaseTest {
 
     public static WebDriver driver = null;
@@ -87,4 +87,12 @@ public class BaseTest {
         saveButton.click();
     }
 
+    protected static void searchSong(String song) {
+        WebElement songSearch = driver.findElement(By.cssSelector("[type='search']"));
+        songSearch.click();
+        songSearch.clear();
+        songSearch.sendKeys(song);
+        songSearch.findElement(By.cssSelector("[class='panes']"));
+        songSearch.click();
+    }
 }
