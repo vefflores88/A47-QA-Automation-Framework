@@ -5,7 +5,7 @@ import org.testng.annotations.Test;
 
     public class Homework17 extends BaseTest {
         @Test
-        public static void LoginValidEmailPasswordTest() {
+        public void addSongtoPlaylist() throws InterruptedException {
 
             // Open the URL for the web page on the chrome browser
             openLoginUrl();
