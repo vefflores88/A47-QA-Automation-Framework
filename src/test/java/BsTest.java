@@ -91,7 +91,7 @@ public class BsTest {
         songSearch.click();
         songSearch.clear();
         songSearch.sendKeys(song);
-        songSearch.findElement(By.cssSelector("[class='panes']"));
-        songSearch.click();
+        }
+
+    protected static void clickViewAll(){}
     }
-}

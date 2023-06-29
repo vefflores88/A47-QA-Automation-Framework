@@ -19,6 +19,8 @@ public class Homework17 extends BsTest{
         //Search for a song in search field
         searchSong("Beautiful");
 
+        clickViewAll();
+
         Thread.sleep(5000);
 
     }
