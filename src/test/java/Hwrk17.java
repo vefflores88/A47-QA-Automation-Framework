@@ -2,7 +2,7 @@ import org.testng.annotations.Test;
 
 public class Hwrk17 extends BsTest{
     @Test
-    public void addSongToPlaylist() throws InterruptedException {
+    public static void addSongToPlaylist() throws InterruptedException {
 
         // Open the URL for the web page on the chrome browser
         openLoginUrl();
