@@ -1,6 +1,6 @@
 import org.testng.annotations.Test;
 
-public class Hwrk17 extends BsTest{
+public class Homework17 extends BsTest{
     @Test
     public static void addSongToPlaylist() throws InterruptedException {
 
@@ -19,7 +19,7 @@ public class Hwrk17 extends BsTest{
         //Search for a song in search field
         searchSong("Beautiful");
 
-        // Thread.sleep(5000);
+        Thread.sleep(5000);
 
     }
 
