@@ -1,8 +1,12 @@
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class Homework17 extends BsTest{
     @Test
     public static void addSongToPlaylist() throws InterruptedException {
+        String newSongAddedNotificationText = "Added 1 song into";
 
         // Open the URL for the web page on the chrome browser
         openLoginUrl();
@@ -23,11 +27,10 @@ public class Homework17 extends BsTest{
         selectFirstSong();
         clickAddTo();
         addToPlaylist();
+        Assert.assertTrue(getNotification().contains(newSongAddedNotificationText));
 
         Thread.sleep(5000);
 
     }
-
-
 }
 

@@ -108,7 +108,11 @@ public class BsTest {
         clickAdd.click();
     }
     protected static void addToPlaylist() {
-        WebElement addPlaylist = driver.findElement(By.cssSelector("li.TestPro"));
+        WebElement addPlaylist = driver.findElement(By.xpath("//section[@id = 'songResultsWrapper']//li[contains(text(),'TestPro')]"));
         addPlaylist.click();
+    }
+    public static String getNotification(){
+        WebElement notificationText = driver.findElement(By.cssSelector("div.success.show"));
+        return notificationText.getText();
     }
 }
