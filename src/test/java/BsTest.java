@@ -99,7 +99,7 @@ public class BsTest {
     }
 
     protected static void selectFirstSong() {
-        WebElement firstSong = driver.findElement(By.cssSelector("#songResultsWrapper tr.song-item.playing.selected td.title"));
+        WebElement firstSong = driver.findElement(By.cssSelector("#songResultsWrapper > div > div > div.item-container > table > tr > td.title"));
         firstSong.click();
     }
 
