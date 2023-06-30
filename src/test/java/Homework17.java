@@ -21,7 +21,7 @@ public class Homework17 extends BsTest{
         clickSubmit();
 
         //Search for a song in search field
-        searchSong("Beautiful");
+        searchSong("Pluto");
 
         clickViewAll();
         selectFirstSong();
