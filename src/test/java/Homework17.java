@@ -20,6 +20,9 @@ public class Homework17 extends BsTest{
         searchSong("Beautiful");
 
         clickViewAll();
+        selectFirstSong();
+        clickAddTo();
+        addToPlaylist();
 
         Thread.sleep(5000);
 

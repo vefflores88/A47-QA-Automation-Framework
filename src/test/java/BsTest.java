@@ -81,7 +81,7 @@ public class BsTest {
         profileName.sendKeys(name);
     }
 
-    protected static void  ClickSaveButton () {
+    protected static void ClickSaveButton() {
         WebElement saveButton = driver.findElement(By.cssSelector(("button.btn-submit")));
         saveButton.click();
     }
@@ -91,7 +91,24 @@ public class BsTest {
         songSearch.click();
         songSearch.clear();
         songSearch.sendKeys(song);
-        }
-
-    protected static void clickViewAll(){}
     }
+
+    protected static void clickViewAll() {
+        WebElement viewAll = driver.findElement(By.cssSelector("div.results section.songs h1 button"));
+        viewAll.click();
+    }
+
+    protected static void selectFirstSong() {
+        WebElement firstSong = driver.findElement(By.cssSelector("#songResultsWrapper tr.song-item.playing.selected td.title"));
+        firstSong.click();
+    }
+
+    protected static void clickAddTo() {
+        WebElement clickAdd = driver.findElement(By.cssSelector("button.btn-add-to"));
+        clickAdd.click();
+    }
+    protected static void addToPlaylist() {
+        WebElement addPlaylist = driver.findElement(By.cssSelector("li.TestPro"));
+        addPlaylist.click();
+    }
+}
