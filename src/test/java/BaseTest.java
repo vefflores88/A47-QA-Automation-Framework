@@ -118,7 +118,8 @@ public class BaseTest {
     }
 
     protected void playNextSong() {
-        WebElement playSong = driver.findElement(By.cssSelector("#mainFooter > div.side.player-controls > span > span.play > i"));
+        WebElement playSong = driver.findElement(By.cssSelector("[title = 'Play or resume']"));
+        playSong.click();
         playSong.click();
     }
 
