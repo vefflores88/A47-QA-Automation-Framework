@@ -4,7 +4,7 @@ public class Homework18 extends BaseTest {
     @Test
     public void playSongTest()throws InterruptedException{
         // Open the URL for the web page on the chrome browser
-        openLoginUrl();
+        //openLoginUrl();
 
         //Put the email field inside the web page
         enterEmail("victor.flores@testpro.io");

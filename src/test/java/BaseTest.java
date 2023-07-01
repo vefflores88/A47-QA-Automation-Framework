@@ -32,15 +32,15 @@ public class BaseTest {
         driver.quit();
     }
 
-    @DataProvider(name = "IncorrectLoginProviders")
-    public static Object [][] getDataFromDataProviders(){
+    @DataProvider(name = "CorrectLoginProviders")
+    public static Object [][] getLoginData(){
         return new Object[][]{
-                {"notexisting@email.com" , "notExistingPassword"},
+                {"victor.flores@testpro.io" , "te$t$tudent"},
                 {"demo@class.com", ""},
                 {"", ""},
         };
     }
-}
+
     protected static void clickSubmit() {
         WebElement submitLogin = driver.findElement(By.cssSelector("button[type='submit']"));
         submitLogin.click();
@@ -110,19 +110,16 @@ public class BaseTest {
         return notificationText.getText();
     }
 
-    protected void playNextSong() {
-        WebElement playSong = driver.findElement(By.cssSelector("[title = 'Play or resume']"));
+    protected void playNextSong() throws InterruptedException {
+        WebElement playSong = driver.findElement(By.cssSelector("#mainFooter > div.side.player-controls > span > [title = 'Play or resume']"));
         playSong.click();
-        protected void playNextSong() throws InterruptedException {
-            WebElement playSong = driver.findElement(By.cssSelector("#mainFooter > div.side.player-controls > span > [title = 'Play or resume']"));
-            playSong.click();
-            //playSong.click();
-            Thread.sleep(10000);
-        }
+        //playSong.click();
+        Thread.sleep(10000);
+    }
 
-        protected void validateSongPlaying() {
-            WebElement playButton = driver.findElement(By.cssSelector("#mainFooter > div.side.player-controls > span > span.pause > i"));
-            WebElement playButton = driver.findElement(By.cssSelector("#mainFooter > div.side.player-controls > span > [title = 'Pause']"));
-            Assert.assertTrue(playButton.isDisplayed());
-        }
+//        protected void validateSongPlaying() {
+//            WebElement playButton = driver.findElement(By.cssSelector("#mainFooter > div.side.player-controls > span > span.pause > i"));
+//            WebElement playButton = driver.findElement(By.cssSelector("#mainFooter > div.side.player-controls > span > [title = 'Pause']"));
+//            Assert.assertTrue(playButton.isDisplayed());
+//        }
     }

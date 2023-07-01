@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 import java.time.Duration;
 
 public class LoginTests extends BaseTest {
-    @Test (dataProvider = "IncorrectLoginProviders")
+    @Test (dataProvider = "CorrectLoginProviders", dataProviderClass = BaseTest.class)
     public void LoginEmptyEmailPasswordTest(String email, String password) {
 
         enterEmail(email);
