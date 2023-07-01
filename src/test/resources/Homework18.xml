@@ -4,12 +4,13 @@
 <suite name="TestNG">
 
     <test name="Homework18" preserve-order="false">
-        <classes>
-            <methods>
-                    <include name="playSongTest"/>
+
             <class name="LoginTests"/>
             <class name="BaseTest"/>
             <class name="Homework18"/>
+                <methods>
+                    <include name="playSongTest"/>
+                </methods>
         </classes>
     </test>
 </suite>
