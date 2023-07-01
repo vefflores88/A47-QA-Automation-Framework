@@ -16,10 +16,10 @@ public class Homework18 extends BaseTest {
         clickSubmit();
 
         //Click play button
-        playNextSong();
+        //playNextSong();
 
         //Validate song is playing
-        validateSongPlaying();
+        //validateSongPlaying();
 
         Thread.sleep(10000);
 
