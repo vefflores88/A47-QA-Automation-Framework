@@ -117,14 +117,15 @@ public class BaseTest {
         return notificationText.getText();
     }
 
-    protected void playNextSong() {
-        WebElement playSong = driver.findElement(By.cssSelector("[title = 'Play or resume']"));
+    protected void playNextSong() throws InterruptedException {
+        WebElement playSong = driver.findElement(By.cssSelector("#mainFooter > div.side.player-controls > span > [title = 'Play or resume']"));
         playSong.click();
-        playSong.click();
+        //playSong.click();
+        Thread.sleep(10000);
     }
 
     protected void validateSongPlaying() {
-        WebElement playButton = driver.findElement(By.cssSelector("#mainFooter > div.side.player-controls > span > span.pause > i"));
+        WebElement playButton = driver.findElement(By.cssSelector("#mainFooter > div.side.player-controls > span > [title = 'Pause']"));
         Assert.assertTrue(playButton.isDisplayed());
     }
 }
