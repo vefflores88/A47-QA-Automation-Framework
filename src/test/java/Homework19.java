@@ -26,6 +26,5 @@ public class Homework19 extends BaseTest {
         Assert.assertTrue(getDeletedDisplay().contains(deletedMessageText));
 
         Thread.sleep(5000);
-
     }
 }
