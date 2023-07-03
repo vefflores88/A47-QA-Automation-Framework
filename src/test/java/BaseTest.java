@@ -133,7 +133,9 @@ public class BaseTest {
         clickNext.click();
         playSong.click();
     }
+
     public boolean validateSongPlaying() {
         WebElement validateSong = driver.findElement(By.cssSelector("#mainFooter > div.media-info-wrap > div.other-controls > div > button:nth-child(2) > div"));
         return validateSong.isDisplayed();
     }
+}

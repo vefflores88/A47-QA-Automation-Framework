@@ -9,7 +9,7 @@
         <class name="BaseTest"/>
         <class name="Homework19"/>
         <methods>
-            <include name="LoginEmptyEmailPasswordTest"/>
+            <include name="deletePlaylist"/>
         </methods>
     </classes>
 </test>
