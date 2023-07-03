@@ -1,10 +1,11 @@
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class Homework19 extends BaseTest {
     @Test
     public void deletePlaylist()throws InterruptedException{
-        // Open the URL for the web page on the chrome browser
-        //openLoginUrl();
+
+        String deletedMessageText = "Deleted Playlist";
 
         //Put the email field inside the web page
         enterEmail("victor.flores@testpro.io");
@@ -15,11 +16,14 @@ public class Homework19 extends BaseTest {
         //Click on the submit button
         clickSubmit();
 
-        //Click play button
-        playNextSong();
+        //click on playlist
+        clickPlaylist();
 
-        //Validate song is playing
-        validateSongPlaying();
+        //click delete playlist(X Playlist)
+        clickDeletePlaylist();
+
+        //verify playlist is deleted
+        Assert.assertTrue(getDeletedDisplay().contains(deletedMessageText));
 
         Thread.sleep(5000);
 

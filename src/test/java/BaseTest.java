@@ -138,4 +138,16 @@ public class BaseTest {
         WebElement validateSong = driver.findElement(By.cssSelector("#mainFooter > div.media-info-wrap > div.other-controls > div > button:nth-child(2) > div"));
         return validateSong.isDisplayed();
     }
+    protected static void clickPlaylist() {
+        WebElement playListSelector = driver.findElement(By.cssSelector("#playlists > ul > li:nth-child(3) > a"));
+        playListSelector.click();
+    }
+    protected static void clickDeletePlaylist() {
+        WebElement playListDelete = driver.findElement(By.cssSelector(".del.btn-delete-playlist"));
+        playListDelete.click();
+    }
+    public String getDeletedDisplay() {
+        WebElement deletedDisplay = driver.findElement(By.cssSelector("div.success.show"));
+        return deletedDisplay.getText();
+    }
 }
