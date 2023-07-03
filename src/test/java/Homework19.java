@@ -1,8 +1,8 @@
 import org.testng.annotations.Test;
 
-public class Homework18 extends BaseTest {
+public class Homework19 extends BaseTest {
     @Test
-    public void playSongTest()throws InterruptedException{
+    public void deletePlaylist()throws InterruptedException{
         // Open the URL for the web page on the chrome browser
         //openLoginUrl();
 
@@ -16,13 +16,12 @@ public class Homework18 extends BaseTest {
         clickSubmit();
 
         //Click play button
-        //playNextSong();
+        playNextSong();
 
         //Validate song is playing
-        //validateSongPlaying();
+        validateSongPlaying();
 
-        Thread.sleep(10000);
+        Thread.sleep(5000);
 
     }
-
 }
