@@ -109,7 +109,6 @@ public class BaseTest {
         WebElement notificationText = driver.findElement(By.cssSelector("div.success.show"));
         return notificationText.getText();
     }
-
     protected void playNextSong() throws InterruptedException {
         WebElement playSong = driver.findElement(By.cssSelector("#mainFooter > div.side.player-controls > span > [title = 'Play or resume']"));
         playSong.click();
