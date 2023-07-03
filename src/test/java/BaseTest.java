@@ -4,6 +4,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.*;
 import org.testng.Assert;
 
@@ -11,6 +14,7 @@ import java.time.Duration;
 import java.util.UUID;
 public class BaseTest {
     public static WebDriver driver = null;
+    public static WebDriverWait wait = null;
     public static String url = "https://qa.koel.app/";
 
     @BeforeSuite
@@ -28,6 +32,7 @@ public class BaseTest {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         url = BaseUrl;
         driver.get(url);
+        wait = new WebDriverWait(driver, Duration.ofSeconds(4));
     }
 
     @AfterMethod
@@ -43,24 +48,21 @@ public class BaseTest {
                 {"", ""},
         };
     }
-
-    protected static void clickSubmit() {
-        WebElement submitLogin = driver.findElement(By.cssSelector("button[type='submit']"));
-        submitLogin.click();
+    protected static void enterEmail(String email) {
+        WebElement emailInput = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("[type='email']")));
+        emailInput.click();
+        emailInput.clear();
+        emailInput.sendKeys(email);
     }
-
     protected static void enterPassword(String password) {
-        WebElement passwordInput = driver.findElement(By.cssSelector("[type='password']"));
+        WebElement passwordInput = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("[type='password']")));
         passwordInput.click();
         passwordInput.clear();
         passwordInput.sendKeys(password);
     }
-
-    protected static void enterEmail(String email) {
-        WebElement emailInput = driver.findElement(By.cssSelector("[type='email']"));
-        emailInput.click();
-        emailInput.clear();
-        emailInput.sendKeys(email);
+    protected static void clickSubmit() {
+        WebElement submitLogin = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("button[type='submit']")));
+        submitLogin.click();
     }
 
     //    protected static void openLoginUrl() {

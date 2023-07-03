@@ -24,7 +24,5 @@ public class Homework19 extends BaseTest {
 
         //verify playlist is deleted
         Assert.assertTrue(getDeletedDisplay().contains(deletedMessageText));
-
-        Thread.sleep(5000);
     }
 }
