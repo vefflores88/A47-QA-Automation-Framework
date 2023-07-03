@@ -5,7 +5,7 @@ public class Homework19 extends BaseTest {
     @Test
     public void deletePlaylist()throws InterruptedException{
 
-        String deletedMessageText = "Deleted Playlist";
+        String deletedMessageText = "Deleted playlist";
 
         //Put the email field inside the web page
         enterEmail("victor.flores@testpro.io");
