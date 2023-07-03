@@ -118,14 +118,16 @@ public class BaseTest {
     }
 
     protected void playNextSong() throws InterruptedException {
-        WebElement playSong = driver.findElement(By.cssSelector("#mainFooter > div.side.player-controls > span > [title = 'Play or resume']"));
+        WebElement clickNext = driver.findElement(By.cssSelector(".next.fa"));
+        WebElement playSong = driver.findElement(By.cssSelector("#mainFooter > div.side.player-controls > span > span.play"));
+
+        clickNext.click();
         playSong.click();
-        //playSong.click();
-        Thread.sleep(10000);
     }
 
-    protected void validateSongPlaying() {
-        WebElement playButton = driver.findElement(By.cssSelector("#mainFooter > div.side.player-controls > span > [title = 'Pause']"));
-        Assert.assertTrue(playButton.isDisplayed());
+    public boolean validateSongPlaying() {
+        WebElement validateSong = driver.findElement(By.cssSelector("#mainFooter > div.media-info-wrap > div.other-controls > div > button:nth-child(2) > div"));
+        return validateSong.isDisplayed();
+
     }
 }

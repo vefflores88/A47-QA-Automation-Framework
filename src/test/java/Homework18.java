@@ -1,3 +1,4 @@
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class Homework18 extends BaseTest {
@@ -16,13 +17,12 @@ public class Homework18 extends BaseTest {
         clickSubmit();
 
         //Click play button
-        //playNextSong();
+        playNextSong();
 
         //Validate song is playing
-        //validateSongPlaying();
+        Assert.assertTrue(validateSongPlaying());
 
         Thread.sleep(10000);
-
     }
 
 }
