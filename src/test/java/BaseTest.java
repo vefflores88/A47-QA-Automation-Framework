@@ -149,7 +149,7 @@ public class BaseTest {
         playListDelete.click();
     }
     public String getDeletedDisplay() {
-        WebElement deletedDisplay = driver.findElement(By.cssSelector("div.success.show"));
+        WebElement deletedDisplay = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div.success.show")));
         return deletedDisplay.getText();
     }
 }
