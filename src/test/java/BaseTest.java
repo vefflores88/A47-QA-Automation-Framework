@@ -49,19 +49,19 @@ public class BaseTest {
         };
     }
     protected static void enterEmail(String email) {
-        WebElement emailInput = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("[type='email']")));
+        WebElement emailInput = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("[type='email']")));
         emailInput.click();
         emailInput.clear();
         emailInput.sendKeys(email);
     }
     protected static void enterPassword(String password) {
-        WebElement passwordInput = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("[type='password']")));
+        WebElement passwordInput = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("[type='password']")));
         passwordInput.click();
         passwordInput.clear();
         passwordInput.sendKeys(password);
     }
     protected static void clickSubmit() {
-        WebElement submitLogin = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("button[type='submit']")));
+        WebElement submitLogin = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("button[type='submit']")));
         submitLogin.click();
     }
 
@@ -141,11 +141,11 @@ public class BaseTest {
         return validateSong.isDisplayed();
     }
     protected static void clickPlaylist() {
-        WebElement playListSelector = driver.findElement(By.cssSelector("#playlists > ul > li:nth-child(3) > a"));
+        WebElement playListSelector = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("#playlists > ul > li:nth-child(3) > a")));
         playListSelector.click();
     }
     protected static void clickDeletePlaylist() {
-        WebElement playListDelete = driver.findElement(By.cssSelector(".del.btn-delete-playlist"));
+        WebElement playListDelete = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".del.btn-delete-playlist")));
         playListDelete.click();
     }
     public String getDeletedDisplay() {
