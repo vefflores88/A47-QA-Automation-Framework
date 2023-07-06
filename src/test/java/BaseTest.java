@@ -156,4 +156,9 @@ public class BaseTest {
         WebElement deletedDisplay = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div.success.show")));
         return deletedDisplay.getText();
     }
+
+    public void doubleClickPlaylist(){
+        WebElement playListElement =  wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("")));
+        actions.doubleClick(playListElement).perform();
+    }
 }
