@@ -141,7 +141,7 @@ public class BaseTest {
     }
 
     public boolean validateSongPlaying() {
-        WebElement validateSong = driver.findElement(By.cssSelector("#mainFooter > div.media-info-wrap > div.other-controls > div > button:nth-child(2) > div"));
+        WebElement validateSong = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("#mainFooter > div.media-info-wrap > div.other-controls > div > button:nth-child(2) > div")));
         return validateSong.isDisplayed();
     }
     protected static void clickPlaylist() {
@@ -160,5 +160,18 @@ public class BaseTest {
     public void doubleClickPlaylist(){
         WebElement playListElement =  wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("")));
         actions.doubleClick(playListElement).perform();
+    }
+
+    public void chooseAllSongsList(){
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("li a.songs"))).click();
+    }
+
+    public void  contextClickFirstSong(){
+        WebElement firstSongElement =  wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".all-songs tr.song-item:nth-child(1)")));
+        actions.contextClick(firstSongElement).perform();
+    }
+
+    public void choosePlayOption(){
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("li.playback"))).click();
     }
 }
