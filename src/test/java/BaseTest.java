@@ -49,6 +49,8 @@ public class BaseTest {
     public static Object[][] getLoginData() {
         return new Object[][]{
                 {"victor.flores@testpro.io", "te$t$tudent"},
+                {"demo@class.com", ""},
+                {"", ""},
         };
     }
     protected static void enterEmail(String email) {
