@@ -9,7 +9,6 @@ public class Homework21 extends BaseTest {
         enterEmail("victor.flores@testpro.io");
         enterPassword("te$t$tudent");
         clickSubmit();
-        clickSubmit();
         doubleClickPlaylist();
         enterNewPlaylistName();
         Assert.assertTrue(doesPlaylistExist());
