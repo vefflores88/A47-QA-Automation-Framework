@@ -1,6 +1,6 @@
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
+import org.openqa.selenium.Keys;
 public class Homework20 extends BaseTest {
     //@Test
     //public void deletePlaylist()throws InterruptedException{
@@ -27,7 +27,7 @@ public class Homework20 extends BaseTest {
     //}
 
     @Test (dataProvider = "CorrectLoginProviders", dataProviderClass = BaseTest.class)
-    public void PlaySong(String email, String password){
+    public void PlaySong(String email, String password) {
         enterEmail("victor.flores@testpro.io");
         enterPassword("te$t$tudent");
         clickSubmit();
@@ -37,7 +37,44 @@ public class Homework20 extends BaseTest {
         choosePlayOption();
 
         Assert.assertTrue(validateSongPlaying());
+    }
+    @Test (dataProvider = "CorrectLoginProviders", dataProviderClass = BaseTest.class)
+    public void HoverPlayButton(String email, String password){
+        enterEmail("victor.flores@testpro.io");
+        enterPassword("te$t$tudent");
+        clickSubmit();
+        chooseAllSongsList();
+        hoverPlay();
+        Assert.assertTrue(hoverPlay().isDisplayed());
 
     }
-}
+    //@Test(dataProvider = "CorrectLoginProviders", dataProviderClass = BaseTest.class)
+//    public void countSongsInPlaylist(String email, String password) {
+//        // Put the email field inside the web page
+//        enterEmail(email);
+//        // Put the password inside the web app
+//        enterPassword(password);
+//        // Click on the submit button
+//        clickSubmit();
+//
+//        choosePlaylistByName("B");
+//        displayAllSongs();
+//        Assert.assertTrue(getPlaylistDetails().contains(String.valueOf(countSongs())));
+    //}
+
+    @Test(dataProvider = "CorrectLoginProviders", dataProviderClass = BaseTest.class)
+    public void renamePlaylist(String email, String password) {
+        // Put the email field inside the web page
+        enterEmail("victor.flores@testpro.io");
+        // Put the password inside the web app
+        enterPassword("te$t$tudent");
+        clickSubmit();
+        // Click on the submit button
+        clickSubmit();
+
+        doubleClickPlaylist();
+        enterNewPlaylistName();
+        Assert.assertTrue(doesPlaylistExist());
+    }
+    }
 

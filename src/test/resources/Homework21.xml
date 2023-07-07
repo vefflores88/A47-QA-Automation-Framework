@@ -2,12 +2,12 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
 <suite name="TestNG">
-    <test name="Homework20" preserve-order="false">
+    <test name="Homework21" preserve-order="false">
         <classes>
             <class name="BaseTest"/>
-            <class name="Homework20"/>
+            <class name="Homework21"/>
             <methods>
-                <include name="countSongsInPlaylist"/>
+                <include name="renamePlaylist"/>
             </methods>
         </class>
     </classes>
