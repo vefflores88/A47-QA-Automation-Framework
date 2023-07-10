@@ -25,4 +25,8 @@ public class BasePage {
     public WebElement findElement(By locator){
         return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
+
+    public void doubleClickPlaylist(By locator){
+        actions.doubleClick(findElement(locator)).perform();
+    }
 }
