@@ -15,6 +15,7 @@ public class HomePage extends BasePage{
     By playListOne = By.cssSelector(".playlist:nth-child(3)");
 
     By playlistNameGiven = By.cssSelector("[name= 'name']");
+    By allSongs = By.cssSelector("li a.songs");
     public void doubleClickPlaylist(){
         doubleClickPlaylist(playListOne);
     }
@@ -33,6 +34,11 @@ public class HomePage extends BasePage{
 
     public WebElement getUserAvatar(){
         return findElement(userAvatarIcon);
+    }
+
+    public void chooseAllSongsList(){
+        waitForOverlayToGoAway();
+        findElement(allSongs).click();
     }
 
 }

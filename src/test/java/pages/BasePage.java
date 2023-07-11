@@ -16,17 +16,28 @@ public class BasePage {
     public static String url = null;
     public static Actions actions = null;
 
-    public BasePage(WebDriver givenDriver){
+    public BasePage(WebDriver givenDriver) {
         driver = givenDriver;
-        wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         actions = new Actions(driver);
     }
 
-    public WebElement findElement(By locator){
+    By overlayLocator = By.cssSelector(".overlay.loading");
+
+    public void waitForOverlayToGoAway() {
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(overlayLocator));
+    }
+
+    public WebElement findElement(By locator) {
         return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
 
-    public void doubleClickPlaylist(By locator){
+    public void doubleClickPlaylist(By locator) {
         actions.doubleClick(findElement(locator)).perform();
+    }
+
+    public void contextClick(By locator) {
+        WebElement contextElement = wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+        actions.contextClick(contextElement).perform();
     }
 }
