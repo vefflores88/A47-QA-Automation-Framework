@@ -25,7 +25,6 @@ public class BaseTest {
     static void setupClass() {
         WebDriverManager.chromedriver().setup();
     }
-
     @BeforeMethod
     @Parameters({"BaseUrl"})
     public void launchBrowser(String BaseUrl) {
@@ -44,7 +43,6 @@ public class BaseTest {
     public void closeBrowser() {
         driver.quit();
     }
-
     @DataProvider(name = "CorrectLoginProviders")
     public static Object[][] getLoginData() {
         return new Object[][]{
