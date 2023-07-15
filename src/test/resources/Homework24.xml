@@ -3,10 +3,10 @@
 
 <suite name="TestNG">
     <parameter name="BaseUrl" value="https://qa.koel.app/"></parameter>
-    <test name="Homework22" preserve-order="false">
+    <test name="Homework24" preserve-order="false">
         <classes>
             <class name="BaseTest"/>
-            <class name="Homework22">
+            <class name="Homework24">
                 <methods>
                     <include name="renamePlaylist"/>
                 </methods>
