@@ -82,8 +82,10 @@ public class BaseTest {
         //driver = pickBrowser(System.getProperty("browser"));
         // driver = new FirefoxDriver();
         threadDriver.set(pickBrowser(System.getProperty("browser")));
-        threadDriver.get().manage().timeouts();
-        getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        threadDriver.get().manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        threadDriver.get().manage().window().maximize();;
+
+        //getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         url = BaseUrl;
         getDriver().get(url);
         wait = new WebDriverWait(getDriver(), Duration.ofSeconds(4));
@@ -94,10 +96,11 @@ public class BaseTest {
     @AfterMethod
     public void closeBrowser() {
         getDriver().quit();
+        threadDriver.remove();
     }
 
-    public WebDriver = getDriver(){
-        return driver;
+    public WebDriver getDriver(){
+        return threadDriver.get();
     }
 
     @DataProvider(name = "CorrectLoginProviders")
@@ -109,8 +112,9 @@ public class BaseTest {
         };
     }
     public void navigateToPage(){
-        getDriver().getUrl();
+        getDriver().getCurrentUrl();
     }
+
     protected static void enterEmail(String email) {
         WebElement emailInput = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("[type='email']")));
         emailInput.click();

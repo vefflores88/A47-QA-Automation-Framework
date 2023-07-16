@@ -22,8 +22,4 @@ public class SongTests extends  BaseTest {
 
     }
 
-    private WebDriver getDriver() {
-    }
-
-
 }

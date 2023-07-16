@@ -30,5 +30,6 @@ test {
     task testRegression(type: Test){
         useTestNG(){
             suites"src/test/resources.Regression.xml"
+            systemProperty("browser"), System.getProperty("browserName")
         }
     }
