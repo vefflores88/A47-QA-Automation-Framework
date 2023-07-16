@@ -43,7 +43,7 @@ public class BaseTest {
         String gridUrl = "http://192.168.0.53:4444";
 
         switch(browser) {
-            case "firefox":
+            case "Firefox":
                 WebDriverManager.firefoxdriver().setup();
                 return driver = new FirefoxDriver();
 
@@ -64,7 +64,8 @@ public class BaseTest {
             case "grid-chrome"://gradle clean test -Dbrowser=grid-chrome
                 caps.setCapability("browserName","chrome");
                 return driver = new RemoteWebDriver(URI.create(gridUrl).toURL(), caps);
-
+            case "cloud":
+                return lambdaTest();
             default:
                 WebDriverManager.chromedriver().setup();
                 ChromeOptions options = new ChromeOptions();
@@ -99,10 +100,25 @@ public class BaseTest {
         threadDriver.remove();
     }
 
-    public WebDriver getDriver(){
+    public static WebDriver getDriver(){
         return threadDriver.get();
     }
+    public static WebDriver lambdaTest () throws MalformedUrlException{
+        String hubUrl = "https:/.hub.lambdatest.com/wd/hub";
 
+        EdgeOptions browserOptions = new EdgeOptions();
+        browserOptions.setPlatformName("Windows 10");
+        browserOptions.setBrowserVersion("112.0");
+        HashMap<String, Object> ltOptions = new HashMap<String, Object>();
+        ltOptions.put("username", "victor.flores");
+        ltOptions.put("accessKey", "EG0PIBdceCvE806jcoTI2k9lgF9Ers82mIkJxAUoN5L7JUZOzz");
+        ltOptions.put("project", "Untitled");
+        ltOptions.put("w3c", true);
+        browserOptions.setCapability("LT:Options", ltOptions);
+
+        return new RemoteWebDriver(new Url(hubUrl), browserOptions);
+
+    }
     @DataProvider(name = "CorrectLoginProviders")
     public static Object[][] getLoginData() {
         return new Object[][]{
