@@ -103,20 +103,21 @@ public class BaseTest {
     public static WebDriver getDriver(){
         return threadDriver.get();
     }
-    public static WebDriver lambdaTest () throws MalformedUrlException{
-        String hubUrl = "https:/.hub.lambdatest.com/wd/hub";
+    public static WebDriver lambdaTest () throws MalformedURLException{
+        String hubURL = "https:/.hub.lambdatest.com/wd/hub";
 
-        EdgeOptions browserOptions = new EdgeOptions();
+        ChromeOptions browserOptions = new ChromeOptions();
         browserOptions.setPlatformName("Windows 10");
-        browserOptions.setBrowserVersion("112.0");
+        browserOptions.setBrowserVersion("114.0");
         HashMap<String, Object> ltOptions = new HashMap<String, Object>();
         ltOptions.put("username", "victor.flores");
         ltOptions.put("accessKey", "EG0PIBdceCvE806jcoTI2k9lgF9Ers82mIkJxAUoN5L7JUZOzz");
         ltOptions.put("project", "Untitled");
+        ltOptions.put("selenium_version", "4.0.0");
         ltOptions.put("w3c", true);
         browserOptions.setCapability("LT:Options", ltOptions);
 
-        return new RemoteWebDriver(new Url(hubUrl), browserOptions);
+        return new RemoteWebDriver(new URL(hubURL), browserOptions);
 
     }
     @DataProvider(name = "CorrectLoginProviders")
