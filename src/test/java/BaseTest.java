@@ -103,7 +103,7 @@ public class BaseTest {
     public static WebDriver getDriver(){
         return threadDriver.get();
     }
-    public static WebDriver lambdaTest () throws MalformedURLException{
+    public WebDriver lambdaTest () throws MalformedURLException{
         String hubURL = "https:/.hub.lambdatest.com/wd/hub";
 
         ChromeOptions browserOptions = new ChromeOptions();
@@ -118,8 +118,8 @@ public class BaseTest {
         browserOptions.setCapability("LT:Options", ltOptions);
 
         return new RemoteWebDriver(new URL(hubURL), browserOptions);
-
     }
+
     @DataProvider(name = "CorrectLoginProviders")
     public static Object[][] getLoginData() {
         return new Object[][]{
