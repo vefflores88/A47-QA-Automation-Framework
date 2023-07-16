@@ -3,12 +3,14 @@ import org.testng.annotations.Test;
 import pages.HomePage;
 import pages.LoginPage;
 
+import static java.sql.DriverManager.getDriver;
+
 public class Homework24 extends BaseTest{
     @Test
     public void renamePlaylist(){
         String playlistName = "New TestPro Playlist";
-        LoginPage loginPage = new LoginPage(driver);
-        HomePage homePage = new HomePage(driver);
+        LoginPage loginPage = new LoginPage(getDriver());
+        HomePage homePage = new HomePage(getDriver());
 
         loginPage.login();
         homePage.doubleClickPlaylist();

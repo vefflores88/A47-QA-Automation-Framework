@@ -1,3 +1,4 @@
+import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.HomePage;
@@ -6,9 +7,9 @@ import pages.LoginPage;
 public class SongTests extends  BaseTest {
     @Test
     public void PlaySong(){
-        LoginPage loginPage = new LoginPage(driver);
-        HomePage homePage = new HomePage(driver);
-        AllSongsPage allSongs = new AllSongsPage(driver);
+        LoginPage loginPage = new LoginPage(getDriver());
+        HomePage homePage = new HomePage(getDriver());
+        AllSongsPage allSongs = new AllSongsPage(getDriver());
 
         loginPage.provideEmail("victor.flores@testpro.io");
         loginPage.providePassword("te$t$tudent");
@@ -19,6 +20,9 @@ public class SongTests extends  BaseTest {
         allSongs.choosePlayOption();
         Assert.assertTrue(allSongs.isSongPlaying());
 
+    }
+
+    private WebDriver getDriver() {
     }
 
 

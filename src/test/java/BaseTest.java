@@ -22,12 +22,16 @@ import java.net.URI;
 import java.time.Duration;
 import java.util.UUID;
 import java.util.List;
+
+import static java.sql.DriverManager.getDriver;
+
 public class BaseTest {
     public static WebDriver driver = null;
     public static WebDriverWait wait = null;
 
     public static Actions actions = null;
     public static String url = "https://qa.koel.app/";
+    public static final ThreadLocal<WebDriver> threadDriver =  new ThreadLocal<WebDriver>();
 
     @BeforeSuite
     static void setupClass() {
@@ -75,19 +79,25 @@ public class BaseTest {
 //        ChromeOptions options = new ChromeOptions();
 //        options.addArguments("--remote-allow-origins=*");
 //        driver = new ChromeDriver(options);
-        driver = pickBrowser(System.getProperty("browser"));
-        //
+        //driver = pickBrowser(System.getProperty("browser"));
         // driver = new FirefoxDriver();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        threadDriver.set(pickBrowser(System.getProperty("browser")));
+        threadDriver.get().manage().timeouts();
+        getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         url = BaseUrl;
-        driver.get(url);
-        wait = new WebDriverWait(driver, Duration.ofSeconds(4));
-        actions = new Actions(driver);
+        getDriver().get(url);
+        wait = new WebDriverWait(getDriver(), Duration.ofSeconds(4));
+        actions = new Actions(getDriver());
+        navigateToPage();
     }
 
     @AfterMethod
     public void closeBrowser() {
-        driver.quit();
+        getDriver().quit();
+    }
+
+    public WebDriver = getDriver(){
+        return driver;
     }
 
     @DataProvider(name = "CorrectLoginProviders")
@@ -97,6 +107,9 @@ public class BaseTest {
                 {"demo@class.com", ""},
                 {"", ""},
         };
+    }
+    public void navigateToPage(){
+        getDriver().getUrl();
     }
     protected static void enterEmail(String email) {
         WebElement emailInput = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("[type='email']")));
