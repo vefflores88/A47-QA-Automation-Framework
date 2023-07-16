@@ -19,7 +19,9 @@ import org.openqa.selenium.Keys;
 
 import java.net.MalformedURLException;
 import java.net.URI;
+import java.net.URL;
 import java.time.Duration;
+import java.util.HashMap;
 import java.util.UUID;
 import java.util.List;
 
@@ -103,8 +105,8 @@ public class BaseTest {
     public static WebDriver getDriver(){
         return threadDriver.get();
     }
-    public WebDriver lambdaTest () throws MalformedURLException{
-        String hubURL = "https:/.hub.lambdatest.com/wd/hub";
+    public static WebDriver lambdaTest () throws MalformedURLException{
+        String hubURL = "https://hub.lambdatest.com/wd/hub";
 
         ChromeOptions browserOptions = new ChromeOptions();
         browserOptions.setPlatformName("Windows 10");
@@ -119,6 +121,7 @@ public class BaseTest {
 
         return new RemoteWebDriver(new URL(hubURL), browserOptions);
     }
+
 
     @DataProvider(name = "CorrectLoginProviders")
     public static Object[][] getLoginData() {
