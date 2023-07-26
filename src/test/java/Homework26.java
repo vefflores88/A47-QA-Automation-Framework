@@ -5,7 +5,7 @@ import pages.LoginPage;
 
 import static java.sql.DriverManager.getDriver;
 
-public class Homework24 extends BaseTest{
+public class Homework26 extends BaseTest{
     @Test
     public void renamePlaylist(){
         String playlistName = "New TestPro Playlist";

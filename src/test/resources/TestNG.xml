@@ -9,7 +9,7 @@
             <class name="pages.HomePage"/>
             <class name="pages.BasePage"/>
             <class name="LoginTests"/>
-            <class name="Homework24"/>
+            <class name="Homework26"/>
             <class name="SongTests"/>
         </classes>
     </test>
