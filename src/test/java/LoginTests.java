@@ -15,7 +15,6 @@ public class LoginTests extends BaseTest{
         loginPage.login();
 
         Assert.assertTrue(homePage.getUserAvatar().isDisplayed());
-
     }
 
 
